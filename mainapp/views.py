@@ -360,6 +360,11 @@ def contributors(request):
 
 
 def request_list(request):
+    deleteitem = request.GET.get('deleteitem','')
+    if deleteitem:
+        item = Request.objects.get(id=deleteitem)
+        item.status = 'del'
+        item.save()
     filter = RequestFilter(request.GET, queryset=Request.objects.exclude(status='sup') )
     req_data = filter.qs.order_by('-id')
     paginator = Paginator(req_data, PER_PAGE)
@@ -941,3 +946,4 @@ class CollectionCenterView(CreateView):
     model = CollectionCenter
     form_class = CollectionCenterForm
     success_url = '/collection_centers/'
+    

@@ -111,7 +111,8 @@
           <td>{{ req.dateadded }}</td>
           <td>{{ req.dateadded|timesince }}</td>
           <td><a class="btn btn-sm btn-success" href="{%url 'requestdetailsview' req.id %}" target="_blank">More details</a></td>
-	  	  <td><a class="btn btn-sm btn-success" href="{%url 'requestupdateview' req.id %}" target="_blank">Update</a></td>
+	  	  <td><a class="btn btn-sm btn-success" href="{%url 'requestupdateview' req.id %}" target="_blank">Update</a> | 
+        <a class="btn btn-sm btn-danger" href="{%url 'requestlistview' %}?deleteitem={{req.id}}">{% bootstrap_icon "trash" %}</a></td>
         </tr>
     {% endfor %}
   </tbody>

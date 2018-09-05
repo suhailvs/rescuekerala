@@ -37,7 +37,8 @@ districts = (
 status_types =(
     ('new', 'New'),
     ('pro', 'In progess'),
-    ('sup', 'Supplied')
+    ('sup', 'Supplied'),
+    ('del', 'Deleted')
 )
 
 volunteer_update_status_types = (
